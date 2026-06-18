@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'theme/app_theme.dart';
-import 'screens/home/home_screen.dart';
+import 'main_shell.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'NovaCart',
       theme: AppTheme.lightTheme,
-      home: const HomeScreen(),
+      home: const MainShell(),
     );
   }
 }
