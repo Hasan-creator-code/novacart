@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../theme/app_colors.dart';
+import '../../widgets/product_quantity_card.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -104,6 +105,43 @@ class HomeScreen extends StatelessWidget {
                         ),
                       ),
                       child: const Text('Review →'),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(height: 24),
+
+              // Live freshness & quantity row
+              const Text(
+                'Live freshness near you',
+                style: TextStyle(
+                  fontSize: 14,
+                  fontWeight: FontWeight.bold,
+                  color: AppColors.textHigh,
+                ),
+              ),
+              const SizedBox(height: 12),
+              SizedBox(
+                height: 220,
+                child: ListView(
+                  scrollDirection: Axis.horizontal,
+                  children: [
+                    ProductQuantityCard(
+                      productName: 'Rice',
+                      freshnessPercent: 92,
+                      availableUnits: [ProductUnit.grams, ProductUnit.kilograms],
+                    ),
+                    const SizedBox(width: 12),
+                    ProductQuantityCard(
+                      productName: 'Eggs',
+                      freshnessPercent: 88,
+                      availableUnits: [ProductUnit.pieces],
+                    ),
+                    const SizedBox(width: 12),
+                    ProductQuantityCard(
+                      productName: 'Bread',
+                      freshnessPercent: 78,
+                      availableUnits: [ProductUnit.packets],
                     ),
                   ],
                 ),
