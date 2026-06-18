@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import '../theme/app_colors.dart';
+import '../state/cart_state.dart';
+import '../state/cart_state.dart';
 
 // The units a product can be ordered in.
 enum ProductUnit { grams, kilograms, pieces, packets }
@@ -146,10 +148,16 @@ class _ProductQuantityCardState extends State<ProductQuantityCard> {
             child: ElevatedButton(
               onPressed: () {
                 final qty = _qtyController.text;
-                // Later: this will actually add {productName, qty, unit} to the cart.
-                debugPrint(
-                  'Add to cart: $qty ${_selectedUnit.label} of ${widget.productName}',
+                if (qty.isEmpty) return;
+                cartState.addItem(widget.productName, qty, _selectedUnit);
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text('Added ' + qty + ' ' + _selectedUnit.label + ' ' + widget.productName + ' to cart'),
+                    duration: const Duration(seconds: 1),
+                    backgroundColor: AppColors.emerald,
+                  ),
                 );
+                _qtyController.clear();
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: AppColors.emeraldBright,
