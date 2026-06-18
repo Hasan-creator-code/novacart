@@ -122,30 +122,15 @@ class HomeScreen extends StatelessWidget {
               ),
               const SizedBox(height: 12),
               SizedBox(
-                height: 220,
+                height: 260,
                 child: ListView(
                   scrollDirection: Axis.horizontal,
                   children: [
-                    ProductQuantityCard(
-                      productName: 'Rice',
-                      freshnessPercent: 92,
-                      availableUnits: [
-                        ProductUnit.grams,
-                        ProductUnit.kilograms,
-                      ],
-                    ),
+                    SizedBox(width: 220, child: ProductQuantityCard(productName: 'Rice', freshnessPercent: 92)),
                     const SizedBox(width: 12),
-                    ProductQuantityCard(
-                      productName: 'Eggs',
-                      freshnessPercent: 88,
-                      availableUnits: [ProductUnit.pieces],
-                    ),
+                    SizedBox(width: 220, child: ProductQuantityCard(productName: 'Eggs', freshnessPercent: 88)),
                     const SizedBox(width: 12),
-                    ProductQuantityCard(
-                      productName: 'Bread',
-                      freshnessPercent: 78,
-                      availableUnits: [ProductUnit.packets],
-                    ),
+                    SizedBox(width: 220, child: ProductQuantityCard(productName: 'Bread', freshnessPercent: 78)),
                   ],
                 ),
               ),
