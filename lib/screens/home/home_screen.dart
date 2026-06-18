@@ -129,7 +129,10 @@ class HomeScreen extends StatelessWidget {
                     ProductQuantityCard(
                       productName: 'Rice',
                       freshnessPercent: 92,
-                      availableUnits: [ProductUnit.grams, ProductUnit.kilograms],
+                      availableUnits: [
+                        ProductUnit.grams,
+                        ProductUnit.kilograms,
+                      ],
                     ),
                     const SizedBox(width: 12),
                     ProductQuantityCard(
